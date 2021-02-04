@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            width: 100vw;
+            height: 100vh;
+
+            text-align: center;
+
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+        }
+
+        h1, td, th {
+            color: white;
+        }
+
+        input, select, button {
+            margin: 1% 0;
+            padding: 2% 0;
+        }
+
+        main {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Cadastro</h1>
+        <form action="/alunos" method="POST">
+            <input type="hidden" name="id" value="${data.id}"/>
+            <input type="text" name="nome" id="" placeholder="Nome" value="${data.nome}" class="form-control">
+            <input type="email" name="email" id="" placeholder="Email" value="${data.email}" class="form-control">
+            <select name="curso" id="" class="form-select">
+                <option value="" selected="${data.curso == ''}" disabled></option>
+                <option value="ADS" selected="${data.curso == 'ADSA'}">Técnologo em ADS</option>
+                <option value="IPI" selected="${data.curso == 'IPI'}">Téc. em Informática para Internet</option>
+                <option value="QUA" selected="${data.curso == 'QUA'}">Téc. em Gestão de Qualidade</option>
+            </select>
+            <div class="d-grid gap-2">
+                <button type="reset" class="btn btn-danger">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
